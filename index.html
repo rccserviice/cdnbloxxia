@@ -1,307 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Download - Bloxxia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credits</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="icon" type="image/png" href="https://cdn.bloxxia.de/favicon.ico">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
     <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.4);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.4);
+            --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
-        
+
         body {
-            background-color: #000;
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            height: 100vh;
+            background-color: var(--bg-color);
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 50%);
+            background-size: 40px 40px, 40px 40px, 100% 100%;
+            background-position: center top;
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 24px 60px;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 72px;
+            animation: fadeInDown 0.8s ease-out;
+            position: relative;
+        }
+
+        .page-title {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -2px;
+            background: linear-gradient(to bottom right, #fff 30%, #94a3b8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 30px rgba(56, 189, 248, 0.2));
+        }
+
+        .page-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            width: 100%;
+            max-width: 1000px;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 48px 32px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+            position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            position: relative;
-        }
-        
-        /* Background pattern */
-        .background-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
+            justify-content: space-between;
             height: 100%;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(40, 40, 40, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 85% 30%, rgba(40, 40, 40, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 50% 80%, rgba(40, 40, 40, 0.05) 0%, transparent 20%);
-            z-index: -1;
-        }
-        
-        /* Animated grid lines */
-        .grid-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: 50px 50px;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            animation: gridMove 20s linear infinite;
-            z-index: -1;
-        }
-        
-        @keyframes gridMove {
-            0% { transform: translateY(0) translateX(0); }
-            100% { transform: translateY(50px) translateX(50px); }
-        }
-        
-        /* Main container */
-        .container {
-            max-width: 800px;
-            padding: 30px;
-            text-align: center;
             z-index: 1;
         }
-        
-        /* Title */
-        .title {
-            font-size: 2.8rem;
-            font-weight: 300;
-            letter-spacing: 8px;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .title::after {
+
+        /* Shine Effect */
+        .card::before {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 25%;
+            top: 0;
+            left: -100%;
             width: 50%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #fff, transparent);
+            height: 100%;
+            background: linear-gradient(to right,
+                    transparent,
+                    rgba(255, 255, 255, 0.05),
+                    transparent);
+            transform: skewX(-20deg);
+            transition: left 0.5s;
+            pointer-events: none;
         }
-        
-        /* Credits card */
-        .credits-card {
-            background: rgba(20, 20, 20, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 40px;
-            margin: 30px 0;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        .card:hover::before {
+            left: 150%;
+            transition: left 0.7s;
         }
-        
-        .credits-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-        }
-        
-        /* Credit text */
-        .credit-text {
-            font-size: 1.8rem;
-            font-weight: 300;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            color: #e0e0e0;
-        }
-        
-        .credit-name {
-            color: #4fc3f7;
-            font-weight: 400;
-            text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .credit-name::after {
+
+        .card::after {
             content: '';
             position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #4fc3f7, transparent);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-        
-        /* Achievement text */
-        .achievement {
-            font-size: 1.3rem;
-            color: #aaa;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .achievement i {
-            color: #4fc3f7;
-            margin-right: 10px;
-        }
-        
-        /* Floating particles */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+            inset: 0;
+            border-radius: 24px;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
             z-index: -1;
         }
-        
-        .particle {
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(56, 189, 248, 0.1);
+        }
+
+        .card-img-container {
+            width: 160px;
+            height: 160px;
+            margin-bottom: 32px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Enhanced Glow behind image */
+        .card-img-container::after {
+            content: '';
             position: absolute;
-            background-color: rgba(79, 195, 247, 0.3);
+            width: 120%;
+            height: 120%;
+            background: var(--accent);
+            filter: blur(60px);
+            opacity: 0.1;
+            z-index: 0;
             border-radius: 50%;
-            animation: float 15s infinite linear;
+            transition: all 0.5s ease;
         }
-        
-        @keyframes float {
-            0% { transform: translateY(0) translateX(0) rotate(0deg); }
-            100% { transform: translateY(-1000px) translateX(500px) rotate(720deg); }
+
+        .card:hover .card-img-container::after {
+            opacity: 0.25;
+            filter: blur(50px);
         }
-        
-        /* Footer */
-        .footer {
-            position: absolute;
-            bottom: 20px;
+
+        .card img {
             width: 100%;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #666;
-            letter-spacing: 1px;
+            height: 100%;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .title {
-                font-size: 2rem;
-                letter-spacing: 4px;
+
+        .card:hover img {
+            transform: scale(1.1) translateY(-5px);
+        }
+
+        .card h4 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .download-btn {
+            background: var(--accent-gradient);
+            border: 0;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 99px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .download-btn:hover {
+            box-shadow: 0 8px 24px rgba(56, 189, 248, 0.5);
+            transform: translateY(-2px);
+            background-size: 150%;
+        }
+
+        .more-soon {
+            margin-top: 80px;
+            text-align: center;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            padding: 12px 24px;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 99px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: fadeIn 1s ease-out 0.5s backwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
             }
-            
-            .credit-text {
-                font-size: 1.4rem;
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
-            
-            .credits-card {
-                padding: 25px;
-                margin: 20px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .page-title {
+                font-size: 40px;
+            }
+
+            .card {
+                padding: 32px 24px;
+            }
+
+            .main {
+                padding-top: 60px;
             }
         }
     </style>
 </head>
+
 <body>
-    <!-- Background elements -->
-    <div class="background-pattern"></div>
-    <div class="grid-lines"></div>
-    <div class="particles" id="particles"></div>
-    
-    <!-- Main content -->
-    <div class="container">
-        <h1 class="title">Credits</h1>
-        
-        <div class="credits-card">
-            <p class="credit-text">
-                Credits to <span class="credit-name">unknownluau</span> for discovering the use of Git LFS and using that with Vercel to make hosting clients effortless.
-            </p>
-            
-            <div class="achievement">
-                <i class="fas fa-cogs"></i>
-                <span>Git LFS Discovery & Vercel Configuration</span>
-            </div>
+    <main class="main">
+        <div class="header-section">
+            <h1 class="page-title">Download</h1>
+            <p class="page-subtitle">Get the Bloxxia Player and jump right into the action.</p>
         </div>
-    </div>
-    
-    <!-- Footer -->
-    <div class="footer">
-        <p>Roblox Revival • Bloxxia</p>
-    </div>
-    
-    <script>
-        // Create floating particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random size
-                const size = Math.random() * 5 + 1;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // Random position
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                
-                // Random animation duration
-                const duration = Math.random() * 20 + 10;
-                particle.style.animationDuration = `${duration}s`;
-                
-                // Random delay
-                particle.style.animationDelay = `${Math.random() * 5}s`;
-                
-                // Random opacity
-                const opacity = Math.random() * 0.4 + 0.1;
-                particle.style.opacity = opacity;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
-        // Animate the credit name
-        function animateCreditName() {
-            const creditName = document.querySelector('.credit-name');
-            let isPulsing = true;
-            
-            // Add subtle color variation
-            setInterval(() => {
-                if (isPulsing) {
-                    const hue = Math.floor(Math.random() * 30) + 190; // Blue hues
-                    creditName.style.color = `hsl(${hue}, 90%, 70%)`;
-                    creditName.style.textShadow = `0 0 10px hsla(${hue}, 90%, 70%, 0.5)`;
-                }
-            }, 3000);
-            
-            // Click to highlight
-            creditName.addEventListener('click', function() {
-                this.style.color = '#00e5ff';
-                this.style.textShadow = '0 0 15px rgba(0, 229, 255, 0.8)';
-                isPulsing = false;
-                
-                setTimeout(() => {
-                    isPulsing = true;
-                }, 3000);
-            });
-        }
-        
-        // Initialize when page loads
-        window.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            animateCreditName();
-            
-            // Add subtle background color shift
-            const background = document.querySelector('.background-pattern');
-            let hue = 0;
-            
-            setInterval(() => {
-                hue = (hue + 0.1) % 360;
-                background.style.backgroundColor = `hsl(${hue}, 10%, 2%)`;
-            }, 5000);
-        });
-    </script>
+
+        <div class="card-grid">
+
+            <a class="card" href="https://cdn.bloxxia.de/bloxxialauncher1.1.zip">
+                <div class="card-img-container">
+                    <img src="B-12-20-2025.png" alt="Bloxxia Launcher">
+                </div>
+                <h4>Bloxxia Launcher (Windows)</h4>
+                <div class="download-btn">
+                    <span>Download Now</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Placeholder for layout balance if needed, or just let grid handle it -->
+
+        </div>
+
+        <p class="more-soon">More platforms coming soon</p>
+    </main>
 </body>
+
 </html>
