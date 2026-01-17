@@ -14,7 +14,7 @@
 
         body {
             height: 100vh;
-            background: 
+            background:
                 linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)),
                 url("Blue.jpg") center/cover no-repeat;
             display: flex;
@@ -78,6 +78,25 @@
             background: #1f6fd6;
             color: white;
         }
+
+        /* footer credit */
+        footer {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -92,22 +111,30 @@
         </p>
 
         <div class="buttons">
-    <a 
-        href="https://cdn.bloxxia.de/bloxxialauncher1.1.zip"
-        class="btn windows"
-        download
-    >
-        Download for Windows
-    </a>
+            <a
+                href="https://cdn.bloxxia.de/bloxxialauncher1.1.zip"
+                class="btn windows"
+                download
+            >
+                Download for Windows
+            </a>
 
-    <a
-        href="https://cdn.discordapp.com/attachments/1442911076583997460/1458745793681817640/Bloxxia_Studio_20162020.zip?ex=696bf723&is=696aa5a3&hm=dd3f92d0cf5f41004e0d8993f2137349e2d38bdbf438c47e9b4322883ec94878&"
-        class="btn studio"
-        download
-    >
-        Download Studio
-    </a>
-</div>
+            <a
+                href="https://cdn.discordapp.com/attachments/1442911076583997460/1458745793681817640/Bloxxia_Studio_20162020.zip"
+                class="btn studio"
+                download
+            >
+                Download Studio
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        Made by
+        <a href="https://bloxxia.de/users/72/profile" target="_blank">
+            Stickmasterluke
+        </a>
+    </footer>
 
 </body>
 </html>
