@@ -1,0 +1,35 @@
+name: Update Deploy History
+
+on:
+  schedule:
+    - cron: '*/30 * * * *' # Runs every 30 minutes
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  update-history:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch latest DeployHistory.txt
+        run: |
+          curl -s -o DeployHistory.txt https://raw.githubusercontent.com/bloxxiastudio/setup/refs/heads/main/DeployHistory.txt
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add DeployHistory.txt
+          if git diff --staged --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git commit -m "Update DeployHistory.txt from source"
+          git push
